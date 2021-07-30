@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fire Chat</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script defer src="js/script.js"></script>
+  </head>
+
+  <body>
+    <section class="hero is-fullheight is-default is-bold">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns is-vcentered">
+            <div class="column is-6 is-offset-3">
+              <h1 class="title is-2">
+                Messages
+              </h1>
+              <div
+                style="border:1px solid #ccc;overflow:auto;height:500px;"
+                id="viewMessageBox"
+              >
+                As you can see, once there's enough text in this box, the box
+                will grow scroll bars... that's why we call it a scroll box! You
+                could also place an image into the scroll box.
+              </div>
+              <br />
+              <input id="message" class="input is-large" autocomplete="off" />
+              <br />
+              <br />
+              <button
+                id="send-btn"
+                class="button"
+                type="submit"
+                onclick="submitMessage()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
