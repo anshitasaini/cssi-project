@@ -1,0 +1,25 @@
+body {
+  background: linear-gradient(to right top, #65dfc9, #96e9ff)
+}
+
+.sender {
+    display: flex;
+    align-items: center;
+}
+
+#senderName {
+    margin-left: 10px;
+}
+
+.box {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.sms {
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+}
+
+.input {
+    background-color: rgba(255, 255, 255, 0.7);
+}

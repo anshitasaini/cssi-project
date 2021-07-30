@@ -1,19 +1,69 @@
-console.log('script.js running');
+const messagesDisplay = document.querySelector('#viewMessageBox');
+const messageInput = document.querySelector('#message');
+const submitButton = document.querySelector('#send-btn');
+
+let db = firebase.database();
+
+let currentUser;  // holds object of user signed in
 
 window.onload = (event) => {
   // Use this to retain user state between html pages.
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       console.log('Logged in as: ' + user.displayName);
-      googleUser = user;
+      currentUser = user;
+      getMessages();
     } else {
-      window.location = 'index.html'; // If not logged in, navigate back to login page.
+      window.location = 'login.html'; // If not logged in, navigate back to login page.
     }
   });
 };
 
-const submitMessage = () => {
-  
-  
-  
+const getMessages = () => {
+    db.ref(`messages/`).on('value', (snapshot) => {
+        let data = snapshot.val();
+        renderMessagesAsHtml(data);
+    });
+}
+
+const renderMessagesAsHtml = (data) => {
+    messagesDisplay.innerHTML = ""; // clear all messages before updating to prevent duplicates
+    
+    for(key in data){
+        let message = data[key];
+        messagesDisplay.innerHTML += createMessage(message);
+    }
 };
+
+const createMessage = (message) => {
+    return `
+            <div class="box sms">
+                <p class="subtitle">${message.message}</p>
+                <div class="sender">
+                    <figure class="image is-24x24 profile-pic" style="display:inline-flex;">
+                        <img class="is-rounded" src="${currentUser.photoURL}" alt="Profile picture of ${currentUser.displayName}"></img>
+                    </figure>
+                    <span id="senderName">By ${message.createdBy}</span>
+                </div>
+            </div>
+            `
+};
+
+const submitMessage = () => {
+    let m = {
+        message: messageInput.value,
+        createdBy: currentUser.displayName,
+        createdAt: Date()
+    }
+
+    db.ref(`messages/`).push(m).then(() => {
+        messageInput.value = "";
+    });
+};
+
+// You can submit the message by pressing enter
+messageInput.addEventListener('keypress', (e) => {
+    if(e.key == "Enter"){
+        submitButton.click();
+    }
+});
