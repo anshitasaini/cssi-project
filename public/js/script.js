@@ -14,6 +14,9 @@ window.onload = (event) => {
       currentUser = user;
       console.log(currentUser);
       getMessages();
+      // make sure the chat is always at the bottom (latest message) when log in
+      // it gives 1 second for all messages to load
+      setTimeout(function(){messagesDisplay.scrollTop = messagesDisplay.scrollHeight;}, 1000)
     } else {
       window.location = 'login.html'; // If not logged in, navigate back to login page.
     }
