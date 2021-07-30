@@ -12,6 +12,7 @@ window.onload = (event) => {
     if (user) {
       console.log('Logged in as: ' + user.displayName);
       currentUser = user;
+      console.log(currentUser);
       getMessages();
     } else {
       window.location = 'login.html'; // If not logged in, navigate back to login page.
@@ -41,7 +42,7 @@ const createMessage = (message) => {
                 <p class="subtitle">${message.message}</p>
                 <div class="sender">
                     <figure class="image is-24x24 profile-pic" style="display:inline-flex;">
-                        <img class="is-rounded" src="${currentUser.photoURL}" alt="Profile picture of ${currentUser.displayName}"></img>
+                        <img class="is-rounded" src="${message.profilePic}" alt="Profile picture of ${message.displayName}"></img>
                     </figure>
                     <span id="senderName">By ${message.createdBy}</span>
                 </div>
@@ -53,6 +54,7 @@ const submitMessage = () => {
     let m = {
         message: messageInput.value,
         createdBy: currentUser.displayName,
+        profilePic: currentUser.photoURL,
         createdAt: Date()
     }
 
