@@ -2,6 +2,8 @@ const messagesDisplay = document.querySelector('#viewMessageBox');
 const messageInput = document.querySelector('#message');
 const submitButton = document.querySelector('#send-btn');
 
+const userIdLabel = document.querySelector('#userID');
+
 let db = firebase.database();
 
 let currentUser;  // holds object of user signed in
@@ -12,6 +14,7 @@ window.onload = (event) => {
     if (user) {
       console.log('Logged in as: ' + user.displayName);
       currentUser = user;
+      userIdLabel.innerHTML = `Your UserID: ${currentUser.uid}`;
       console.log(currentUser);
       getMessages();
       // make sure the chat is always at the bottom (latest message) when log in
@@ -24,7 +27,7 @@ window.onload = (event) => {
 };
 
 const getMessages = () => {
-    db.ref(`messages/`).on('value', (snapshot) => {
+    db.ref(`global_messages/`).on('value', (snapshot) => {
         let data = snapshot.val();
         renderMessagesAsHtml(data);
     });
@@ -61,7 +64,7 @@ const submitMessage = () => {
         createdAt: Date()
     }
 
-    db.ref(`messages/`).push(m).then(() => {
+    db.ref(`global_messages/`).push(m).then(() => {
         messageInput.value = "";
     });
 };
