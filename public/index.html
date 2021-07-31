@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Fire Chat</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <!-- update the version number as needed -->
@@ -19,8 +20,16 @@
     <section class="hero is-fullheight is-default is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <div class="columns is-vcentered">
-                    <div class="column is-6 is-offset-3">
+                <div class="columns is-centered">
+                    <div class="column is-3">
+                        <h1 class="title is-2">
+                            Chats
+                        </h1>
+                        <div style="overflow:auto;height:500px;" class="box" id="chatsBox">
+                            Here, you should see all the chats...
+                        </div>
+                    </div>
+                    <div class="column is-9">
                         <h1 class="title is-2">
                             Global Chat
                         </h1>
@@ -29,13 +38,10 @@
                             will grow scroll bars... that's why we call it a scroll box! You
                             could also place an image into the scroll box.
                         </div>
-                        <br />
                         <input id="message" class="input is-medium is-rounded" autocomplete="off"
-                            placeholder="Enter a message" />
-                        <br />
-                        <br />
+                            placeholder="Enter a message" style="width:80%"/>
                         <button id="send-btn" class="button is-medium is-link is-outlined is-rounded" type="submit"
-                            onclick="submitMessage()">
+                            onclick="submitMessage()" style="width:19%">
                             Submit
                         </button>
                     </div>
