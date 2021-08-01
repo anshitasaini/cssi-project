@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Fire Chat</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/8.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.3.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <script defer src="js/script.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
+    
     <section class="hero is-fullheight is-default is-bold">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <div class="columns is-vcentered">
-            <div class="column is-6 is-offset-3">
-              <h1 class="title is-2">
-                Messages
-              </h1>
-              <div
-                style="border:1px solid #ccc;overflow:auto;height:500px;"
-                id="viewMessageBox"
-              >
-                As you can see, once there's enough text in this box, the box
-                will grow scroll bars... that's why we call it a scroll box! You
-                could also place an image into the scroll box.
-              </div>
-              <br />
-              <input id="message" class="input is-large" autocomplete="off" />
-              <br />
-              <br />
-              <button
-                id="send-btn"
-                class="button"
-                type="submit"
-                onclick="submitMessage()"
-              >
-                Submit
-              </button>
+        <label id="userID" class="label">Your UserID:</label>
+        <div class="hero-body" style="padding-top:0px;">
+            <div class="container has-text-centered">
+                <div class="columns is-centered">
+                    <div class="column is-3">
+                        <h1 class="title is-2">
+                            Chats
+                        </h1>
+                        <input id="chatSearch" class="input is-medium is-rounded" autocomplete="off" placeholder="Enter a UserID to start chatting!">
+                        <br>
+                        <br>
+                        <div style="overflow:auto;height:500px" class="box" id="chatsBox">
+                            <a class="box chat" href="#" onclick="">
+                                <figure class="image is-24x24 profile-pic" style="display:inline-flex;">
+                                    <img class="is-rounded" src="https://www.freeiconspng.com/thumbs/global-icon/global-icon-13.png" alt="Earth icon"></img>
+                                </figure>
+                                <span class="subtitle" style="margin-left: 10px;">Global Chat</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-9">
+                        <h1 id="currentChat" class="title is-2">
+                            Global Chat
+                        </h1>
+                        <div style="overflow:auto;height:500px;" class="box" id="viewMessageBox">
+                            As you can see, once there's enough text in this box, the box
+                            will grow scroll bars... that's why we call it a scroll box! You
+                            could also place an image into the scroll box.
+                        </div>
+                        <input id="message" class="input is-medium is-rounded" autocomplete="off"
+                            placeholder="Enter a message" style="width:80%"/>
+                        <button id="send-btn" class="button is-medium is-link is-outlined is-rounded" type="submit"
+                            onclick="submitMessage()" style="width:19%">
+                            Submit
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
-  </body>
+</body>
+
 </html>
