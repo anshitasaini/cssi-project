@@ -9,6 +9,8 @@ let db = firebase.database();
 
 let currentUser;  // holds object of user signed in
 
+let currentScroll = 0;
+
 window.onload = (event) => {
   // Use this to retain user state between html pages.
   firebase.auth().onAuthStateChanged(function(user) {
@@ -40,6 +42,7 @@ const updateUserInfo = () => {
 
 const getMessages = () => {
     db.ref(`global_messages/`).on('value', (snapshot) => {
+        currentScroll = messagesDisplay.scrollTop;
         let data = snapshot.val();
         renderMessagesAsHtml(data);
     });
@@ -52,6 +55,7 @@ const renderMessagesAsHtml = (data) => {
         let message = data[key];
         addMessage(message);
     }
+    setTimeout(function(){messagesDisplay.scrollTop = currentScroll;}, 100);
 };
 
 // messages will have the most up to date name and profile pic
