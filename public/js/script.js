@@ -55,7 +55,7 @@ const renderMessagesAsHtml = (data) => {
         let message = data[key];
         addMessage(message);
     }
-    setTimeout(function(){messagesDisplay.scrollTop = currentScroll;}, 100);
+    setTimeout(function(){messagesDisplay.scrollTop = currentScroll;}, 200);
 };
 
 // messages will have the most up to date name and profile pic
