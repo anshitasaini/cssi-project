@@ -7,6 +7,8 @@ const chatSearch = document.querySelector('#chatSearch');
 
 let db = firebase.database();
 
+let msgs = [];
+
 let currentUser;  // holds object of user signed in
 
 let currentScroll = 0;
@@ -41,6 +43,7 @@ const updateUserInfo = () => {
 };
 
 const getMessages = () => {
+    messagesDisplay.innerHTML = "";
     db.ref(`global_messages/`).on('value', (snapshot) => {
         currentScroll = messagesDisplay.scrollTop;
         let data = snapshot.val();
@@ -49,13 +52,13 @@ const getMessages = () => {
 }
 
 const renderMessagesAsHtml = (data) => {
-    messagesDisplay.innerHTML = ""; // clear all messages before updating to prevent duplicates
-    
     for(key in data){
-        let message = data[key];
-        addMessage(message);
+        if(msgs.includes(key) == false){
+            msgs.push(key);
+            let message = data[key];
+            addMessage(message);
+        }
     }
-    setTimeout(function(){messagesDisplay.scrollTop = currentScroll;}, 200);
 };
 
 // messages will have the most up to date name and profile pic
