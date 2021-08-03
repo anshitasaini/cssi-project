@@ -170,8 +170,11 @@ const addMessage = (message) => {
             </div>
             `;
             messagesDisplay.innerHTML += m;
-        messagesDisplay.innerHTML += m;
-        console.log(isScrolledAllDown);
+            
+            // we will automatically make the user scroll all the way down if he was already scrolled all the way down before
+            if(isScrolledAllDown){
+                messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
+            }
         }
     });
 
