@@ -13,8 +13,6 @@ let msgs = [];
 let db = firebase.database();
 let indivchat = false;
 
-let msgs = [];
-
 let currentUser;  // holds object of user signed in
 
 let currentScroll = 0;
@@ -174,13 +172,14 @@ const addMessage = (message) => {
             messagesDisplay.innerHTML += m;
         messagesDisplay.innerHTML += m;
         console.log(isScrolledAllDown);
-
-        // we will automatically make the user scroll all the way down if he was already scrolled all the way down before
-        if(isScrolledAllDown){
-            messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
         }
     });
-};
+
+    // we will automatically make the user scroll all the way down if he was already scrolled all the way down before
+    if(isScrolledAllDown){
+        messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
+    }
+}
 
 const addChat = (otherUserID) => {
     db.ref(`users/${otherUserID}`).get().then((snapshot) => {
