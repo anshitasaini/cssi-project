@@ -20,9 +20,11 @@
     let currentScroll = 0;
     let isScrolledAllDown = true;
 
-
+    // Anshita's ID:
     // iTxWedj31lOgen3iEQiuMfxvgQF3
+    // Max's ID:
     // bATCbG4BSOdHC01hkav70esAZe52
+    // Kayden's ID:
     // RrDUNItGMiYBjUOQXxaO558FsEQ2
 
     window.onload = (event) => {
