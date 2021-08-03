@@ -13,9 +13,12 @@ let msgs = [];
 let db = firebase.database();
 let indivchat = false;
 
+let msgs = [];
+
 let currentUser;  // holds object of user signed in
 
 let currentScroll = 0;
+let isScrolledAllDown = true;
 
 
 // iTxWedj31lOgen3iEQiuMfxvgQF3
@@ -32,9 +35,6 @@ window.onload = (event) => {
       updateUserInfo();  // make sure name & profile pic in db are up to date
       getMessages();
       loadIndiv();  // loads chats
-      // make sure the chat is always at the bottom (latest message) when log in
-      // it gives 1 second for all messages to load
-      setTimeout(function(){messagesDisplay.scrollTop = messagesDisplay.scrollHeight;}, 1000)
     } else {
       window.location = 'login.html'; // If not logged in, navigate back to login page.
     }
@@ -93,7 +93,16 @@ const getMessages = () => {
     messagesDisplay.innerHTML = "";
     msgs = [];
     db.ref(`global_messages/`).on('value', (snapshot) => {
+        
+        //this little peace of code checks if the user is scrolled all the way down
         currentScroll = messagesDisplay.scrollTop;
+        // we need to subtract the CSS height because 
+        if(currentScroll == messagesDisplay.scrollHeight - messagesDisplay.offsetHeight){
+            isScrolledAllDown = true;
+        } else {
+            isScrolledAllDown = false;
+        }
+
         let data = snapshot.val();
         renderMessagesAsHtml(data);
     });
@@ -163,6 +172,12 @@ const addMessage = (message) => {
             </div>
             `;
             messagesDisplay.innerHTML += m;
+        messagesDisplay.innerHTML += m;
+        console.log(isScrolledAllDown);
+
+        // we will automatically make the user scroll all the way down if he was already scrolled all the way down before
+        if(isScrolledAllDown){
+            messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
         }
     });
 };
