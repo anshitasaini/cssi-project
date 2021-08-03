@@ -31,13 +31,14 @@
                         <br>
                         <br>
                         <div style="overflow:auto;height:500px" class="box" id="chatsBox">
-                            <a class="box chat" href="#" onclick="">
+                            <a class="box chat" href="#" onclick="switchGlobal()">
                                 <figure class="image is-24x24 profile-pic" style="display:inline-flex;">
                                     <img class="is-rounded" src="https://www.freeiconspng.com/thumbs/global-icon/global-icon-13.png" alt="Earth icon"></img>
                                 </figure>
                                 <span class="subtitle" style="margin-left: 10px;">Global Chat</span>
                             </a>
                         </div>
+                        <input id="userToChatWith" type="hidden">
                     </div>
                     <div class="column is-9">
                         <h1 id="currentChat" class="title is-2">
@@ -50,10 +51,12 @@
                         </div>
                         <input id="message" class="input is-medium is-rounded" autocomplete="off"
                             placeholder="Enter a message" style="width:80%"/>
-                        <button id="send-btn" class="button is-medium is-link is-outlined is-rounded" type="submit"
-                            onclick="submitMessage()" style="width:19%">
-                            Submit
-                        </button>
+                        <div id='send-container'>
+                            <button id="send-btn" class="button is-medium is-link is-outlined is-rounded" type="submit"
+                                onclick="submitMessage()" style="width:19%">
+                                Submit
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
