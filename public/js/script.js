@@ -177,11 +177,6 @@ const addMessage = (message) => {
             }
         }
     });
-
-    // we will automatically make the user scroll all the way down if he was already scrolled all the way down before
-    if(isScrolledAllDown){
-        messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
-    }
 }
 
 const addChat = (otherUserID) => {
