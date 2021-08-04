@@ -153,6 +153,8 @@ const addMessage = (message) => {
                         <img class="is-rounded" src="${userInfo.profilePic}" alt="Profile picture of ${userInfo.displayName}"></img>
                     </figure>
                     <span id="senderName">By ${userInfo.displayName}</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="margin-left: auto">@${userInfo.username}</span>
                 </div>
             </div>
             `;
@@ -256,11 +258,15 @@ let settingsBtn = document.getElementById("settings-btn");
 
 let closeSettingsModalBtn = document.querySelector("#modalCloseBtn");
 
+let saveChangesButton = document.querySelector('#saveChangesButton');
+
+let cancelButton = document.querySelector('#cancelButton');
+
 settingsBtn.onclick = function() {
     settingsModal.classList.add('is-active');
 }
 
-closeSettingsModalBtn.onclick = function() {
+const closeSettingsModal = () => {
     settingsModal.classList.remove('is-active');
 }
 
