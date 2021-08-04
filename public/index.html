@@ -19,7 +19,18 @@
 <body>
     
     <section class="hero is-fullheight is-default is-bold">
-        <label id="userID" class="label">Your UserID:</label>
+        <div style="display:flex;">
+            <label id="userID" class="label">Your Username:</label>
+            <button id="settings-btn" class="button is-small is-link is-rounded is-outlined" type="submit" style="margin-left:auto;margin-top:5px;">
+                Settings
+            </button>
+            <div id="settingsModal" class="modal">
+                <div class="modal-content">
+                    <p>Put Text Here</p>
+                </div>
+                <button id="modalCloseBtn" class="modal-close is-large" aria-label="close"></button>
+            </div>
+        </div>
         <div class="hero-body" style="padding-top:0px;">
             <div class="container has-text-centered">
                 <div class="columns is-centered">
@@ -27,7 +38,7 @@
                         <h1 class="title is-2">
                             Chats
                         </h1>
-                        <input id="chatSearch" class="input is-medium is-rounded" autocomplete="off" placeholder="Enter a UserID to start chatting!">
+                        <input id="chatSearch" class="input is-medium is-rounded" autocomplete="off" placeholder="Enter a username to start chatting!">
                         <br>
                         <br>
                         <div style="overflow:auto;height:500px" class="box" id="chatsBox">
