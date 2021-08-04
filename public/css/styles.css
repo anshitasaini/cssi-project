@@ -1,6 +1,14 @@
 body {
-    background: linear-gradient(to right top, #65dfc9, #96e9ff)
+    /* background: linear-gradient(to right top, #65dfc9, #96e9ff) */
+    /* background-image: url("https://i.ibb.co/NnPYjR0/bg.png");
+     */
+    background-image: url("https://i.ibb.co/vBGc2PC/imageedit-6-3081312550.png");
+    background-color: rgba(255,255,255,0.2);
   }
+
+/* .is-2 {
+    color: #fefefe;
+} */
   
   .sender, .chat {
       display: flex;
@@ -12,18 +20,39 @@ body {
   }
   
   .box {
-      background-color: rgba(255,255,255,0.2);
+      background-color: rgba(255,255,255,0.4);
       border-radius: 40px;
+      border-color: black;
+      border-style: solid;
+      border-width: 0.1px;
   }
   
   .sms, .chat {
-      background-color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.95);
       text-align: left;
+      border-color: black;
+      border-style: solid;
+      border-width: 0.1px;
   }
   
   .input {
-      background-color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #000000;
+      border-color: black;
+      border-style: solid;
+      border-width: 0.1px;
   }
+
+  .button {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: black!important;
+    border-color: black !important;
+}
+
+.button:hover {
+  background-color: #BAF3FF !important; /* Green */
+  color: black !important;
+}
   
   /*
   TRYING TO IMPLEMENT A CUSTOM SCROLLBAR IN OUR WEBSITE
@@ -42,14 +71,13 @@ body {
   /* Handle */
   #viewMessageBox::-webkit-scrollbar-thumb {
       border-radius:25px;
-      background: #AAA;
+      background: rgba(252, 255, 242, 0.7);
   }
   
   /* Handle on hover */
   #viewMessageBox::-webkit-scrollbar-thumb:hover {
-      background: #666;
+      background: rgba(252, 255, 242, 0.7);
   }
-  
   
   /* HIDING SCROLLBAR
   https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
@@ -99,3 +127,4 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
+

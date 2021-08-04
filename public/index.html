@@ -20,8 +20,10 @@
     
     <section class="hero is-fullheight is-default is-bold">
         <div style="display:flex;">
-            <label id="userID" class="label">Your Username:</label>
-            <button id="settings-btn" class="button is-small is-link is-rounded is-outlined" type="submit" style="margin-left:auto;margin-top:5px;">
+            <div class="box">
+                <label id="userID" class="label">Your Username:</label>
+            </div>
+            <button id="settings-btn" class="button is-medium is-link is-rounded is-outlined" type="submit" style="margin-left:auto;margin-top:5px;">
                 Settings
             </button>
             <div id="settingsModal" class="modal">
@@ -35,9 +37,11 @@
             <div class="container has-text-centered">
                 <div class="columns is-centered">
                     <div class="column is-3">
+                        <div class="box">
                         <h1 class="title is-2">
                             Chats
                         </h1>
+                        </div>
                         <input id="chatSearch" class="input is-medium is-rounded" autocomplete="off" placeholder="Enter a username to start chatting!">
                         <br>
                         <br>
@@ -52,13 +56,12 @@
                         <input id="userToChatWith" type="hidden">
                     </div>
                     <div class="column is-9">
+                        <div class="box">
                         <h1 id="currentChat" class="title is-2">
                             Global Chat
                         </h1>
+                        </div>
                         <div style="overflow:auto;height:500px;" class="box" id="viewMessageBox">
-                            As you can see, once there's enough text in this box, the box
-                            will grow scroll bars... that's why we call it a scroll box! You
-                            could also place an image into the scroll box.
                         </div>
                         <input id="message" class="input is-medium is-rounded" autocomplete="off"
                             placeholder="Enter a message" style="width:80%"/>
