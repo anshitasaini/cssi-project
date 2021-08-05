@@ -257,17 +257,17 @@ const selectThemeElement = document.querySelector('#changeMode');
 
 const cssiMode = (themeCSSlink) => {
     console.log('CSSI');
-    themeCSSlink.setAttribute('href', 'css/styles.css');
+    themeCSSlink.setAttribute('href', 'css/cssi_stylesheet.css');
 };
 
 const lightMode = (themeCSSlink) => {
     console.log('Light');
-    themeCSSlink.setAttribute('href', 'css/light.css');
+    themeCSSlink.setAttribute('href', 'css/light_stylesheet.css');
 };
 
 const darkMode = (themeCSSlink) => {
     console.log('Dark');
-    themeCSSlink.setAttribute('href', 'css/dark.css');
+    themeCSSlink.setAttribute('href', 'css/dark_stylesheet.css');
 }
 
 const toggleTheme = (option) => {
