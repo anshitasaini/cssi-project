@@ -1,0 +1,138 @@
+body {
+    background-color: rgba(255,255,255);
+  }
+
+.google_yellow {
+    color: #F4B400;
+}
+
+.google_blue {
+    color: #4285F4;
+}
+
+.google_green {
+    color: #0F9D58;
+}
+
+.google_red {
+    color: #DB4437;
+}
+
+  .sender, .chat {
+      display: flex;
+      align-items: center;
+  }
+  
+  #senderName {
+      margin-left: 10px;
+  }
+  
+  .box {
+      background-color: rgba(66,133,244,0.3);
+      border-radius: 40px;
+      border-color: #4285F4;
+      border-style: solid;
+      border-width: 0.1px;
+  }
+  
+  .sms, .chat {
+      background-color: rgba(255, 255, 255, 0.95);
+      text-align: left;
+      border-color: #0F9D58;
+      border-style: solid;
+      border-width: 0.1px;
+  }
+  
+  .input {
+      background-color: rgba(66,133,244,0.3);
+      color: #000000;
+      border-color: #4285F4;
+      border-style: solid;
+      border-width: 0.1px;
+  }
+
+  .button {
+    background-color: rgba(219,68,55, 0.7) !important;
+    color: #ffffff !important;
+    border-color: #DB4437 !important;
+}
+
+.button:hover {
+  background-color: #DB4437 !important; /* Green */
+  color: #ffffff  !important;
+}
+  
+  /*
+  TRYING TO IMPLEMENT A CUSTOM SCROLLBAR IN OUR WEBSITE
+  CREDITS TO: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
+  */
+  /* width */
+  #viewMessageBox::-webkit-scrollbar {
+      width: 10px;
+  }
+  
+  /* Track */
+  #viewMessageBox::-webkit-scrollbar-track {
+      display: none;
+  }
+  
+  /* Handle */
+  #viewMessageBox::-webkit-scrollbar-thumb {
+      border-radius:25px;
+      background: rgba(252, 255, 242, 0.7);
+  }
+  
+  /* Handle on hover */
+  #viewMessageBox::-webkit-scrollbar-thumb:hover {
+      background: rgba(252, 255, 242, 0.7);
+  }
+  
+  /* HIDING SCROLLBAR
+  https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
+  */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
