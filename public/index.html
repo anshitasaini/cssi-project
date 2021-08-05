@@ -23,15 +23,11 @@
             <div class="box">
                 <label id="userID" class="label">Your Username:</label>
             </div>
-            <button id="settings-btn" class="button is-medium is-link is-rounded is-outlined" type="submit" style="margin-left:auto;margin-top:5px;">
-                Settings
-            </button>
-            <div id="settingsModal" class="modal">
-                <div class="modal-content">
-                    <p>Put Text Here</p>
-                </div>
-                <button id="modalCloseBtn" class="modal-close is-large" aria-label="close"></button>
-            </div>
+            <select id="changeMode" style="margin-left:auto;margin-top:5px;margin-right:10px;">
+                <option>CSSI Mode</option>
+                <option>Light Mode</option>
+                <option>Dark Mode</option>
+            </select>
         </div>
         <div class="hero-body" style="padding-top:0px;">
             <div class="container has-text-centered">
@@ -42,7 +38,7 @@
                             Chats
                         </h1>
                         </div>
-                        <input id="chatSearch" class="input is-medium is-rounded" autocomplete="off" placeholder="Enter a username to start chatting!">
+                        <input id="chatSearch" class="input is-medium is-rounded" autocomplete="off" placeholder="Enter a username!">
                         <br>
                         <br>
                         <div style="overflow:auto;height:500px" class="box" id="chatsBox">

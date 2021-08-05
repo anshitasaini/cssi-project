@@ -98,7 +98,7 @@ const getMessages = () => {
     currentChatRef.on('value', (snapshot) => {
         
         //this little peace of code checks if the user is scrolled all the way down
-        currentScroll = messagesDisplay.scrollTop;
+        currentScroll = messagesDisplay.scrollTop-2;  // i don't know why but it is adding 2 to our scroll
         // we need to subtract the CSS height because 
         if(currentScroll == messagesDisplay.scrollHeight - messagesDisplay.offsetHeight){
             isScrolledAllDown = true;
@@ -252,26 +252,18 @@ chatSearch.addEventListener('keypress', (e) => {
     }
 })
 
-let settingsModal = document.getElementById("settingsModal");
+// now we just need to actually implement the CSS changes to these functions
+const cssiMode = () => {
+    console.log('CSSI');
+    //
+};
 
-let settingsBtn = document.getElementById("settings-btn");
+const lightMode = () => {
+    console.log('Light');
+    //
+};
 
-let closeSettingsModalBtn = document.querySelector("#modalCloseBtn");
-
-let saveChangesButton = document.querySelector('#saveChangesButton');
-
-let cancelButton = document.querySelector('#cancelButton');
-
-settingsBtn.onclick = function() {
-    settingsModal.classList.add('is-active');
-}
-
-const closeSettingsModal = () => {
-    settingsModal.classList.remove('is-active');
-}
-
-window.onclick = function(event) {
-    if (event.target == settingsModal) {
-        settingsModal.classList.remove('is-active');
-    }
+const darkMode = () => {
+    console.log('Dark');
+    //
 }
