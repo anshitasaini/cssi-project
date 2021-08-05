@@ -252,18 +252,45 @@ chatSearch.addEventListener('keypress', (e) => {
     }
 })
 
-// now we just need to actually implement the CSS changes to these functions
-const cssiMode = () => {
+
+const selectThemeElement = document.querySelector('#changeMode');
+
+const cssiMode = (themeCSSlink) => {
     console.log('CSSI');
-    //
+    themeCSSlink.setAttribute('href', 'css/styles.css');
 };
 
-const lightMode = () => {
+const lightMode = (themeCSSlink) => {
     console.log('Light');
-    //
+    themeCSSlink.setAttribute('href', 'css/light.css');
 };
 
-const darkMode = () => {
+const darkMode = (themeCSSlink) => {
     console.log('Dark');
-    //
+    themeCSSlink.setAttribute('href', 'css/dark.css');
 }
+
+const toggleTheme = (option) => {
+    // Obtains an array of all <link> elements.
+    // Select the element using indexing.
+    let themeCSSlink = document.querySelectorAll('link')[2]; // the third CSS is our style.css
+    
+    // Change the value of href attribute to change the css sheet.
+    if (option.includes("Dark")) {
+        darkMode(themeCSSlink);
+    } else if(option.includes("CSSI")) {
+        cssiMode(themeCSSlink);
+    } else if(option.includes("Light")){
+        lightMode(themeCSSlink);
+    } else {
+        console.log(option);
+        console.log("Something is wrong? This option is invalid.")
+    }
+};
+
+// listens for changes in the Theme Selector
+selectThemeElement.addEventListener('change', (e) => {
+    // will be CSSI Mode , Dark Mode , or Light Mode
+    let selectedTheme = selectThemeElement.options[selectThemeElement.selectedIndex].value;
+    toggleTheme(selectedTheme);
+});
