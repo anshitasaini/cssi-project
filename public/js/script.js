@@ -98,9 +98,10 @@ const getMessages = () => {
     currentChatRef.on('value', (snapshot) => {
         
         //this little piece of code checks if the user is scrolled all the way down
-        currentScroll = messagesDisplay.scrollTop;
+        currentScroll = Math.round(messagesDisplay.scrollTop-3);
+        console.log(currentScroll, messagesDisplay.scrollHeight - messagesDisplay.offsetHeight);
         // we need to subtract the CSS height because 
-        if(currentScroll == messagesDisplay.scrollHeight - messagesDisplay.offsetHeight){
+        if(currentScroll == Math.round(messagesDisplay.scrollHeight - messagesDisplay.offsetHeight)){
             isScrolledAllDown = true;
         } else {
             isScrolledAllDown = false;
