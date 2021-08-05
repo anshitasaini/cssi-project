@@ -97,7 +97,7 @@ const getMessages = () => {
     msgs = [];
     currentChatRef.on('value', (snapshot) => {
         
-        //this little peace of code checks if the user is scrolled all the way down
+        //this little piece of code checks if the user is scrolled all the way down
         currentScroll = messagesDisplay.scrollTop;
         // we need to subtract the CSS height because 
         if(currentScroll == messagesDisplay.scrollHeight - messagesDisplay.offsetHeight){

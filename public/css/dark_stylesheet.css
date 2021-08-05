@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(255,255,255);
+    background-color: #181818;
   }
 
 .google_yellow {
@@ -18,9 +18,18 @@ body {
     color: #DB4437;
 }
 
+.is-2 {
+    color: #ffffff;
+}
+
+.label {
+    color: #ffffff;
+}
+
   .sender, .chat {
       display: flex;
       align-items: center;
+      color: #ffffff;
   }
   
   #senderName {
@@ -28,7 +37,8 @@ body {
   }
   
   .box {
-      background-color: rgba(66,133,244,0.2);
+      background-color: rgba(66,133,244,0.4);
+      color: #ffffff;
       border-radius: 40px;
       border-color: #4285F4;
       border-style: solid;
@@ -36,7 +46,8 @@ body {
   }
   
   .sms, .chat {
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: #38383b;
+      color: #ffffff !important;
       text-align: left;
       border-color: #0F9D58;
       border-style: solid;
@@ -44,11 +55,20 @@ body {
   }
   
   .input {
-      background-color: rgba(66,133,244,0.2);
-      color: #000000;
+      background-color: rgba(66,133,244,0.4);
+      color: #ffffff;
       border-color: #4285F4;
       border-style: solid;
       border-width: 0.1px;
+  }
+
+  .subtitle {
+      color: #ffffff;
+  }
+
+  ::placeholder {
+      color: #ffffff !important;
+      opacity: 1;
   }
 
   .button {
